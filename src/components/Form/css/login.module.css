@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: center;  
+    margin-top: 100px; 
+    margin-bottom: 100px;
+    border: 3px dashed green;
+    border-radius: 10px;
+    padding: 50px 50px;
+}
+
+.form_container{
+    display: flex;
+    width: 550px
+}
+
+.form_container__input{
+    height: 50px;
+    width: 250px;
+    margin-top: 10px;
+}
+
+.form_container h1{
+   margin-right: 20px;
+}
+
+.createAccount{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form_container__button__submit{
+    margin-top: 10px;
+}
+
+.form_container__validate{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.form_container__validate div{
+    color: red;
+    border: 2px solid red;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+ }

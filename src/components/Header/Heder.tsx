@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./css/Header.module.css";
 
@@ -9,18 +9,10 @@ import headerLogin from "../../images/icons/header-login.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { AppStateType } from "../../redux/store";
 import { logOutDataThunk } from "../../redux/reducers/login-reducer";
-import { authApi } from "../../dal/api";
 
 const Header: React.FC = (props) => {
   const auth = useSelector((state: AppStateType) => state.loginCatalog.auth);
   const dispatch = useDispatch();
-
-
-  useEffect(() => {
-   setInterval(() => {
-    authApi.changePasswordR()
-    }, 5000);
-  }, []);
 
   const headerNavGenerator = (item: string) => {
     return (
