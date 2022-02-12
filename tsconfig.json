@@ -8,6 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
+    "strictNullChecks": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -22,5 +23,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/components/Login/.tsx", "src/components/Login/.tsx"  ]
 }

@@ -3,6 +3,9 @@ import s from './css/InfoForm.module.css';
 import infoform1 from '../../images/content/infologo1.png';
 import infoform2 from '../../images/content/infologo2.png';
 import infoform3 from '../../images/content/infologo3.png';
+import { Redirect } from 'react-router';
+import { useSelector } from 'react-redux';
+import { AppStateType } from '../../redux/store';
 
 
 
@@ -24,6 +27,12 @@ const InfoForm: React.FC = () => {
             </li>
         )
     };
+
+    const auth = useSelector((state: AppStateType) => state.loginCatalog.auth)
+
+    if(auth === false){
+        return <Redirect to={"/login"}/>
+    }
 
     return (
         <div className={s.content}>

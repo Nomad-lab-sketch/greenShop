@@ -1,24 +1,35 @@
 import React from "react";
-import s from "./App.module.css"
+import s from "./App.module.css";
 import Header from "./components/Header/Heder";
 import InfoForm from "./components/InfoForm/InfoForm";
 import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
-import ContainerFlowers from "./components/DirectoryFlowers/ContainerFlowers";
-
-
+import Login from "./components/Login/Login";
+import Registration from "./components/Login/Registration";
+import ChangePassword from "./components/Login/ChangePassword";
+import { Redirect, Route } from "react-router";
+import { useSelector } from "react-redux";
+import { AppStateType } from "./redux/store";
 
 const App: React.FC = () => {
-
-    return (
-        <div className={s.container}>
-            <Header/>
-            <ContainerFlowers />
-            <InfoForm/>
-            <Contacts/>
-            <Footer/>
-        </div>
-    );
-}
+  const auth = useSelector((state: AppStateType) => state.loginCatalog.auth);
+  return (
+    <div className={s.container}>
+      <Header />
+      {auth === false ? <Route path="/login" render={() => <Login />} /> : null}
+      {auth === false ? (
+        <Route path="/registration" render={() => <Registration />} />
+      ) : null}
+      {auth === true ? (
+        <Route path="/changePassword" render={() => <ChangePassword />} />
+      ) : (
+        <Redirect to={"/login"} />
+      )}
+      <Route path="/home" render={() => <InfoForm />} />
+      <Contacts />
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
